@@ -7,6 +7,10 @@ import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,7 @@ import br.com.devinhouse.grupo04.service.ProcessoService;
 
 @CrossOrigin
 @RestController
+@Api(tags = "Processos", description = "Endpoint de processos")
 @RequestMapping(value = "/v1" + "/processos")
 public class ProcessoController {
 	
@@ -43,6 +48,10 @@ public class ProcessoController {
 	private ProcessoMapper processoMapper;
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "Obtém os processos", notes = "Endpoint para obtenção de processos")
+	@ApiResponses({
+			@ApiResponse(code = 200, message = "Você obterá uma lista de processos")
+	})
 	@GetMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
