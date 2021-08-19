@@ -48,10 +48,7 @@ public class ProcessoController {
 	private ProcessoMapper processoMapper;
 	
 	@RolesAllowed("user")
-	@ApiOperation(value = "Obtém os processos", notes = "Endpoint para obtenção de processos")
-	@ApiResponses({
-			@ApiResponse(code = 200, message = "Você obterá uma lista de processos")
-	})
+	@ApiOperation(value = "", notes = "Endpoint que retorna todos os processos.")
 	@GetMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -66,6 +63,7 @@ public class ProcessoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint que retorna um processo pelo Id.")
 	@GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -76,6 +74,7 @@ public class ProcessoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para criação de um processo.")
 	@PostMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -86,6 +85,7 @@ public class ProcessoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para a edição de um processo.")
 	@PutMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -96,6 +96,7 @@ public class ProcessoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para remoção de um processo.")
 	@DeleteMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

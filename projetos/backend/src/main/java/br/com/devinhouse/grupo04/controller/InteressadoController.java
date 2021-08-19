@@ -7,6 +7,8 @@ import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,16 +32,18 @@ import br.com.devinhouse.grupo04.service.InteressadoService;
 
 @CrossOrigin
 @RestController
+@Api(tags = "Interessados", description = "Endpoint de interessados")
 @RequestMapping(value = "/v1" + "/interessados")
 public class InteressadoController {
 
 	@Autowired
 	private InteressadoMapper interessadoMapper;
-	
+
 	@Autowired
 	private InteressadoService service;
-	
+
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para a criação de um interessado.")
 	@PostMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -48,8 +52,9 @@ public class InteressadoController {
 
 		return interessadoMapper.toDto(interessado);
 	}
-	
+
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint que retorna todos os interessados.")
 	@GetMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -58,8 +63,9 @@ public class InteressadoController {
 
 		return interessadoMapper.toDto(interessados);
 	}
-	
+
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint que retorna um interessado pelo Id.")
 	@GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -68,16 +74,18 @@ public class InteressadoController {
 
 		return interessadoMapper.toDto(interessado);
 	}
-	
+
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para a edição de um interessado.")
 	@PutMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void update(@PathVariable Long id, @RequestBody InteressadoDTOInput interessadoDTO) {
 		service.update(id, interessadoMapper.toInteressado(interessadoDTO));
 	}
-	
+
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para exclusão de um interessado.")
 	@DeleteMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)

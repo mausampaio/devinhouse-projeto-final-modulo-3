@@ -7,6 +7,8 @@ import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,7 @@ import br.com.devinhouse.grupo04.service.AssuntoService;
 
 @CrossOrigin
 @RestController
+@Api(tags = "Assuntos", description = "Endpoint de assuntos")
 @RequestMapping(value = "v1" + "/assuntos")
 public class AssuntoController {
 	
@@ -43,6 +46,7 @@ public class AssuntoController {
 	private AssuntoService service;
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint que retorna todos os assuntos.")
 	@GetMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -55,6 +59,7 @@ public class AssuntoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint que retorna um assunto pelo Id.")
 	@GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.OK)
@@ -65,6 +70,7 @@ public class AssuntoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para criação de um assunto.")
 	@PostMapping(produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -77,6 +83,7 @@ public class AssuntoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para edição de um processo.")
 	@PutMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -87,6 +94,7 @@ public class AssuntoController {
 	}
 	
 	@RolesAllowed("user")
+	@ApiOperation(value = "", notes = "Endpoint para exclusão de um processo.")
 	@DeleteMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
