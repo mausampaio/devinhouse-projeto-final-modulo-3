@@ -20,6 +20,57 @@ O diagrama elaborado, e visível abaixo, é uma representação sucinta das cama
 A documentação da API foi realizada com OpenAPI (Swagger) e SpringFox. Ademais, também foi elaborada uma versão da mesma com ReDoc.
 As imagens das documentações podem ser vistas abaixo.
 
+* ### Observação: 
+
+<div align="justify">
+  A API conta com um sistema de segurança (protocolo OAuth). Portanto, para poder utilizar as funções de teste de 'endpoints' disponibilizadas pela documentação, faz-se     necessária a autenticação na mesma.
+  <br/>
+  Para tanto, seguem as informações a serem passadas na 'API Client' preferida.
+  <br/>
+  <br/>
+</div>
+
+<details>
+  <summary>
+    Imagem de exemplo no Insomnia
+  </summary>
+   <div align="center">
+    <br/>
+    <img width="944" alt="Dados para obter o token" src="https://user-images.githubusercontent.com/75398842/130609194-27e21ee6-97e5-4f64-a535-9bf8bffc0222.png">
+   </div>
+</details>
+
+* #### Dados a serem passados
+
+<div align="center">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      </tr>
+      <tr>  
+        <td>grant_type</td>
+        <td>password</td>
+      </tr>
+      <tr> 
+        <td>client_id</td>
+        <td>devinhouse-spring-boot-keycloak</td>
+      </tr>      
+      <tr> 
+        <td>client_secret</td>
+        <td>5955c798-d5db-41f8-a772-de8c7c11242e</td>
+      </tr>
+      <tr> 
+        <td>username</td>
+        <td>alberto</td>
+      </tr>
+      <tr> 
+        <td>password</td>
+        <td>123</td>
+      </tr>
+  </table>
+</div>
+
 <details>
   <summary>
     <strong>Swagger UI</strong>
