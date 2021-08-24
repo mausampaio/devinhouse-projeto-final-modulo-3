@@ -7,10 +7,6 @@ import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +28,8 @@ import br.com.devinhouse.grupo04.dto.ProcessoDTOInput;
 import br.com.devinhouse.grupo04.dto.ProcessoDTOOutput;
 import br.com.devinhouse.grupo04.mapper.ProcessoMapper;
 import br.com.devinhouse.grupo04.service.ProcessoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin
 @RestController
