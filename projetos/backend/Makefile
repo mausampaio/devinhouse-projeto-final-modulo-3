@@ -1,6 +1,11 @@
-docker-compose down:
+ifeq (run, $(firstword $(MAKECMDGOALS)))
+  runargs := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
+  $(eval $(runargs):;@true)
+endif
+
+down:
 	docker-compose down
-maven-package:  docker-compose down
-	mvn clean package -Dmaven.test.skip=true
-run: maven-package
-	docker-compose up
+package:  down
+	mvn clean package -Dmaven.test.skip=true $(quiet)
+run: package
+	docker-compose up $(runargs)

@@ -40,6 +40,7 @@ As imagens das documentações podem ser vistas abaixo.
    </div>
 </details>
 
+* #### Token URL: https://training.dev.delivery/auth/realms/Grupo02/protocol/openid-connect/token
 * #### Dados a serem passados
 
 <div align="center">
@@ -103,6 +104,114 @@ As imagens das documentações podem ser vistas abaixo.
 
 ---
 
-## :whale: Docker - Front-end
+## :gear: Como configurar e executar
 
-## :whale2: Docker - Back-end
+```bash
+
+    # Clonar o repositório
+    $ git clone https://github.com/mausampaio/devinhouse-projeto-final-modulo-3.git
+
+```
+
+### :whale: Utilizando o Docker
+
+Para rodar o projeto utilizando o Docker é necessário ter o mesmo instalado na máquina:
+
+https://docs.docker.com/get-docker/
+
+Para subir o Frontend:
+
+```bash
+
+    # Navegar para o diretório do frontend
+    $ cd devinhouse-projeto-final-modulo-3/projetos/frontend
+
+    # Para subir os containers
+    $ docker-compose up -d
+
+```
+
+Para Subir o Backend:
+
+Para rodar o backend foi criado um arquivo makefile para facilitar a geração do artefato do java e posteriormente executar o container. Para executar o Makefile é necessário possuir o make na máquina.
+
+Caso seja Windows segue link:
+
+https://community.chocolatey.org/packages/make
+
+Caso seja Linux:
+
+```bash
+
+$ apt install make
+
+```
+
+```bash
+
+    # Navegar para o diretório do backend
+    $ cd devinhouse-projeto-final-modulo-3/projetos/backend
+
+    # Executa o Makefile
+    $ make run
+
+    # Executa o Makefile como processo
+    $ make run -- -d
+
+    # Executa o Makefile sem verbose no maven
+    $ make run quiet=-q
+
+    # Os argumentos podem ser usados juntos
+    $ make run quiet=-q -- -d
+
+    # Para parar o container
+    $ make down
+
+    # Para gerar o artefato
+    $ make package
+
+```
+
+### Sem o Docker
+
+Para subir o backend:
+
+```bash
+
+    # Navegar para o diretório do backend
+    $ cd devinhouse-projeto-final-modulo-3/projetos/backend
+
+    # Faça o build do backend
+
+    # Caso Linux ou MacOS
+    $ ./mvnw package
+    # Caso Windows
+    $ ./mvnw.cmd package
+
+    # Navegar para a pasta target
+    $ cd /target
+
+    # Execute o arquivo .jar
+    $ java -jar backend-0.0.1-SNAPSHOT.jar
+
+```
+
+Para subir o frontend:
+
+```bash
+
+    # Navegar para o diretório do frontend
+    $ cd devinhouse-projeto-final-modulo-3/projetos/frontend
+
+    $ npm install
+    # ou
+    $ yarn
+
+    # Para iniciar a aplicação
+    $ npm start
+    # ou
+    $ yarn start
+
+```
+
+<br/>
